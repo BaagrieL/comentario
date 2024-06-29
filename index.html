@@ -1,101 +1,16 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
-<head>
+  <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- styles -->
-    <style>
-        a:hover {
-            cursor: pointer;
-        }
-    </style>
-    <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+    <link rel="icon" href="/assets/favicon-BMLvAZGv.ico">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <title>Comentários</title>
-</head>
-
-<body>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comment section</title>
+    <script type="module" crossorigin src="/assets/index-Dnnf0Q2z.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-BF7b7lUR.css">
+  </head>
+  <body>
     <div id="app"></div>
-
-    <script src="https:/cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script>
-        new Vue({
-            el: '#app',
-            template: `
-            <div class="container">
-                <h1>Comentários</h1>
-                
-                <p><input v-model="name" type="text" name="name" class="form-control"></p>
-               
-                <p><textarea v-model="comment" name="comment" class="form-control"></textarea></p>
-                <button v-on:click="addComment" type="submit" class="btn btn-primary">Comentar</button>
-                <hr/>
-                <div class="list-group">
-                    <div v-for="(comment, index) in allComments" class="list-group-item">
-                        <span class="comment__autor">Nome: {{ comment.name}}</span>
-                        <p> Mensagem: {{ comment.message}}</p>
-                        <div>
-                            <a v-on:click.prevent="removeComment(index)" class="link-offset-2 link-underline-danger link-danger">&Cross; Excluir</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            `,
-            data() {
-                return {
-                    comments: [{
-                            name: 'Gabriel',
-                            message: '?;)'
-                        },
-                        {
-                            name: 'Thy',
-                            message: '<3'
-                        },
-                        {
-                            name: 'Bia',
-                            message: 'Olá!'
-                        },
-                    ],
-                    name: '',
-                    comment: ''
-                }
-            },
-            methods: {
-                addComment() {
-                    if (this.comment.trim() === '') {
-                        alert("comenta aí >:?");
-                        return;
-                    }
-
-                    this.comments.push({
-                        name: this.name,
-                        message: this.comment
-                    });
-
-                    this.name = '';
-                    this.comment = '';
-
-
-                },
-                removeComment(index) {
-                    this.comments.splice(index, 1)
-                }
-            },
-            computed: {
-                allComments() {
-                    return this.comments.map(comment => ({
-                        ...comment,
-                        name: comment.name === '' ? 'Anônimo' : comment.name
-                    }))
-                }
-            }
-
-        });
-    </script>
-</body>
-
+  </body>
 </html>
